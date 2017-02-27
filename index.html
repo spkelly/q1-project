@@ -3,13 +3,100 @@
   <head>
     <meta charset="utf-8">
     <title>Map Test</title>
+    <!-- Minified JQUERY -->
     <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous">
+    </script>
+    <!-- Compiled and minified Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- Minified Materialize Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="./script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1>Legislative Tracker V.0001</h1>
+    <nav>
+      <div class="nav-wrapper blue darken-3">
+        <a href="#">Place Holer</a>
+      </div>
+    </nav>
+    <section id=main>
+      <div id="search-holder" class="container">
+        <div class="row">
+          <form class="" action="index.html" method="post">
+            <input type="text" name=""  placeholder="Bill Name" id="name-input" class=" col l4 search-input">
+            <input type="text" name="" placeholder="Bill ID"id="id-input" class=" col l4 offset-l1 search-input">
+            <button type="submit" name="search-button" class="btn" id=>Search</button>
+          </form>
+          <!-- <input type="text" name="" value=""class="search-input"> -->
+        </div>
+      </div>
+
+    </section>
+    <section id="results">
+        <div class="container">
+          <ul class="collection">
+            <a class="collection-item">
+              <div class="row">
+                <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
+                <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
+              </div>
+              <ul>
+                <li class="sr-billNumber">Bill Number: </li>
+                <li class="sr-lastAction">Last Action: </li>
+              </ul>
+            </a>
+            <a class="collection-item">
+              <div class="row">
+                <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
+                <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
+              </div>
+              <ul>
+                <li class="sr-billNumber">Bill Number: </li>
+                <li class="sr-lastAction">Last Action: </li>
+              </ul>
+            </a>
+            <a class="collection-item">
+              <div class="row">
+                <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
+                <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
+              </div>
+              <ul>
+                <li class="sr-billNumber">Bill Number: </li>
+                <li class="sr-lastAction">Last Action: </li>
+              </ul>
+            </a>
+            <a class="collection-item">
+              <div class="row">
+                <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
+                <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
+              </div>
+              <ul>
+                <li class="sr-billNumber">Bill Number: </li>
+                <li class="sr-lastAction">Last Action: </li>
+              </ul>
+            </a>
+            <a class="collection-item">
+              <div class="row">
+                <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
+                <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
+              </div>
+              <ul>
+                <li class="sr-billNumber">Bill Number: </li>
+                <li class="sr-lastAction">Last Action: </li>
+              </ul>
+            </a>
+          </ul>
+        </div>
+
+
+    </section>
+    <footer class="page-footer blue darken-3">
+      <div class="container">
+      </div>
+    </footer>
   </body>
 </html>
