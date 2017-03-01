@@ -1,9 +1,9 @@
 $('document').ready(() => {
   'use strict';
 
-// ============================= FUNCTIONS ================================= //
-  const fakeAjaxCall = function(){
-    let billTestData = {
+  // ============================= FUNCTIONS =============================== //
+  const fakeAjaxCall = () => {
+    const billTestData = {
       'status': 'OK',
       'searchresult': {
         '0': {
@@ -123,7 +123,7 @@ $('document').ready(() => {
     }
 
     return billTestData;
-  }
+  };
 
   // THIS FUNCTION NEEDS SOME WORK
   // TODO: create searhResults bill object with relevent data
@@ -158,12 +158,22 @@ $('document').ready(() => {
     return billResults;
   };
   const makeCollectionItem = (billItem) => {
-    const item = $('<a class="collection-item"></a>');
+    const item = $('<a class="collection-item model-trigger">');
     const rowDiv = $('<div class="row"></div>');
     const billHeader = $('<h5 class=" col l6 m6 s6 sr-BillName"></h5>');
     const subList = $('<ul></ul');
     const lastAction = $('<li class="sr-lastAction"></li>');
     const billNumber = $('<li class="sr-billNumber"></li>');
+
+    const billModal =$('<div>').addClass('modal');
+
+    billModal.attr('id',`${billItem.bill_id}`);
+    const modalContent = $('<div>').addClass('modal-content');
+    const modalHeader = $('<h4>').text(`${billItem.title}`);
+    const modalBody = $('<p>').text(`${billItem.bill_number}`);
+
+    modalContent.append(modalHeader, modalBody);
+    billModal.append(modalContent);
 
     lastAction.text(`Last Action:  [${billItem.last_action_date}] - ${billItem.last_action}`);
     billNumber.text(`Bill Number: ${billItem.bill_number}`);
@@ -174,6 +184,9 @@ $('document').ready(() => {
     rowDiv.append(billHeader);
     rowDiv.append(subList);
     item.append(rowDiv);
+    item.append(billModal);
+    item.attr('href',`#${billItem.bill_id}`);
+    billModal.modal();
 
     return item;
   };
@@ -186,9 +199,17 @@ $('document').ready(() => {
 
     for (let i = 0; i < results.length; i++) {
       const collectionItem = makeCollectionItem(results[i]);
-
       collection.append(collectionItem);
+      let billModal = collectionItem.children('div[class=modal]');
+      console.log('the bill modal',billModal);
+      // add event listener to each bill button
+      // make an ajax call to get bill information
+      collectionItem.click(function(){
+        console.log(`${collectionItem}: Has been clicked`);
+      });
     }
+
+    // adding models to collection item
   };
 
   // ========================= PROGRAM STARTS HERE ======================== //
@@ -209,9 +230,9 @@ $('document').ready(() => {
 
   $searchButton.click((e) => {
     e.preventDefault();
-
     const searchResults = initSearchResults();
 
     buildSearchCollection(searchResults);
+
   });
 });
