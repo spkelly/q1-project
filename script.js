@@ -2,190 +2,57 @@ $('document').ready(() => {
   'use strict';
 
   // ============================= FUNCTIONS =============================== //
-  const fakeAjaxCall = () => {
-    const billTestData = {
-      'status': 'OK',
-      'searchresult': {
-        '0': {
-          'relevance': 100,
-          'state': 'CO',
-          'bill_number': 'SB135',
-          'bill_id': 940087,
-          'change_hash': 'a619d62a1dd63b76eb797e689ac08f12',
-          'url': 'https://legiscan.com/CO/bill/SB135/2017',
-          'text_url': 'https://legiscan.com/CO/text/SB135/2017',
-          'research_url': 'https://legiscan.com/CO/research/SB135/2017',
-          'last_action_date': '2017-02-24',
-          'last_action': 'Senate Third Reading Laid Over Daily - No Amendments',
-          'title': 'Remove Medical Release Requirement For Animal Chiropractic'
-        },
-        '1': {
-          'relevance': 99,
-          'state': 'CO',
-          'bill_number': 'HB1179',
-          'bill_id': 949292,
-          'change_hash': 'cd9b1983c123546d5297db525cfbdca8',
-          'url': 'https://legiscan.com/CO/bill/HB1179/2017',
-          'text_url': 'https://legiscan.com/CO/text/HB1179/2017',
-          'research_url': 'https://legiscan.com/CO/research/HB1179/2017',
-          'last_action_date': '2017-02-23',
-          'last_action': 'House Committee on Health, Insurance, & Environment Refer Amended to House Committee of the Whole',
-          'title': 'Immunity For Emergency Rescue From Locked Vehicle'
-        },
-        '2': {
-          'relevance': 98,
-          'state': 'CO',
-          'bill_number': 'SB109',
-          'bill_id': 936273,
-          'change_hash': '99cf1644783d5c5eec89679535249fc3',
-          'url': 'https://legiscan.com/CO/bill/SB109/2017',
-          'text_url': 'https://legiscan.com/CO/text/SB109/2017',
-          'research_url': 'https://legiscan.com/CO/research/SB109/2017',
-          'last_action_date': '2017-02-16',
-          'last_action': 'Introduced In House - Assigned to Agriculture, Livestock, & Natural Resources',
-          'title': 'Industrial Hemp Animal Feed'
-        },
-        '3': {
-          'relevance': 96,
-          'state': 'CO',
-          'bill_number': 'SB030',
-          'bill_id': 908821,
-          'change_hash': 'abcf4abac97027e6b795f05d1f30091b',
-          'url': 'https://legiscan.com/CO/bill/SB030/2017',
-          'text_url': 'https://legiscan.com/CO/text/SB030/2017',
-          'research_url': 'https://legiscan.com/CO/research/SB030/2017',
-          'last_action_date': '2017-02-06',
-          'last_action': 'Introduced In House - Assigned to Agriculture, Livestock, & Natural Resources',
-          'title': 'Exempt Injectable Anabolic Steroids For Cattle'
-        },
-        '4': {
-          'relevance': 93,
-          'state': 'CO',
-          'bill_number': 'SB146',
-          'bill_id': 940119,
-          'change_hash': '21b03d0fe71e44efc9dd0df96bce5f2b',
-          'url': 'https://legiscan.com/CO/bill/SB146/2017',
-          'text_url': 'https://legiscan.com/CO/text/SB146/2017',
-          'research_url': 'https://legiscan.com/CO/research/SB146/2017',
-          'last_action_date': '2017-02-22',
-          'last_action': 'Senate Second Reading Laid Over to 02/27/2017 - No Amendments',
-          'title': 'Access To Prescription Drug Monitoring Program'
-        },
-        '5': {
-          'relevance': 87,
-          'state': 'CO',
-          'bill_number': 'HB1008',
-          'bill_id': 908813,
-          'change_hash': '1915efd3bcbba47474f213124ffffdf8',
-          'url': 'https://legiscan.com/CO/bill/HB1008/2017',
-          'text_url': 'https://legiscan.com/CO/text/HB1008/2017',
-          'research_url': 'https://legiscan.com/CO/research/HB1008/2017',
-          'last_action_date': '2017-01-11',
-          'last_action': 'Introduced In House - Assigned to Agriculture, Livestock, & Natural Resources',
-          'title': 'Graywater Regulation Exemption For Scientific Research'
-        },
-        '6': {
-          'relevance': 85,
-          'state': 'CO',
-          'bill_number': 'HB1171',
-          'bill_id': 948176,
-          'change_hash': '40c9d7d98e6ac1927d92b185d28e1e7a',
-          'url': 'https://legiscan.com/CO/bill/HB1171/2017',
-          'text_url': 'https://legiscan.com/CO/text/HB1171/2017',
-          'research_url': 'https://legiscan.com/CO/research/HB1171/2017',
-          'last_action_date': '2017-02-06',
-          'last_action': 'Introduced In House - Assigned to State, Veterans, & Military Affairs + Finance + Appropriations',
-          'title': 'Authorize New Transportation Revenue Anticipation Notes'
-        },
-        '7': {
-          'relevance': 69,
-          'state': 'CO',
-          'bill_number': 'SB056',
-          'bill_id': 913437,
-          'change_hash': '8af67798a1bae39a37a75abbf5e959ee',
-          'url': 'https://legiscan.com/CO/bill/SB056/2017',
-          'text_url': 'https://legiscan.com/CO/text/SB056/2017',
-          'research_url': 'https://legiscan.com/CO/research/SB056/2017',
-          'last_action_date': '2017-02-24',
-          'last_action': 'House Second Reading Passed with Amendments - Committee',
-          'title': 'Reporting Requirements By Colorado Department Of Public Health And Environment To General Assembly'
-        },
-        'summary': {
-          'page': '1 of 1',
-          'range': '1 - 8',
-          'relevancy': '100% - 69%',
-          'count': 8,
-          'page_current': 1,
-          'page_total': 1,
-          'query': '(animal:(pos=1))'
-        }
-      }
-    }
-
-    return billTestData;
-  };
 
   // THIS FUNCTION NEEDS SOME WORK
   // TODO: create searhResults bill object with relevent data
   // TODO: Push that data into the results array
   const initSearchResults = () => {
     const billResults = [];
-    const testResults = fakeAjaxCall();
 
-    if ($nameInput.val() || $idInput.val()) {
-      const results = testResults.searchresult;
+    if ($nameInput.val()) {
+      options+=$nameInput.val();
+      $.ajax({
+        method: 'GET',
+        url: (apiURL + apiKey + options),
+        success: function(data) {
+          const results = data.searchresult;
 
-      for (let bill in results) {
-        console.log(bill);
-        if (bill !== 'summary') {
-          billResults.push(results[bill]);
+          for (let bill in results) {
+            if (bill !== 'summary') {
+              billResults.push(results[bill]);
+            }
+          }
+          buildSearchCollection(billResults);
+        },
+        error: function(data) {
+          console.log('Error');
         }
-      }
-      console.log(billResults);
-
-      // $.ajax({
-      //   method: 'GET',
-      //   url: (apiURL + apiKey + options),
-      //   success: function(data) {
-      //     console.log(JSON.stringify(data));
-      //   },
-      //   error: function(data) {
-      //     console.log('Error');
-      //   }
-      // })
+      })
     }
-
-    return billResults;
   };
   const makeCollectionItem = (billItem) => {
     const item = $('<a class="collection-item model-trigger">');
-    const rowDiv = $('<div class="row"></div>');
-    const billHeader = $('<h5 class=" col l6 m6 s6 sr-BillName"></h5>');
-    const subList = $('<ul></ul');
-    const lastAction = $('<li class="sr-lastAction"></li>');
-    const billNumber = $('<li class="sr-billNumber"></li>');
+    const rowDiv = $('<div class="row">');
+    const billHeader = $('<h5 class=" col l6 m6 s6 sr-BillName">');
+    const subList = $('<ul>');
+    const lastAction = $('<li class="sr-lastAction">');
+    const billNumber = $('<li class="sr-billNumber">');
 
+    // Modal stuff
     const billModal =$('<div>').addClass('modal');
-
     billModal.attr('id',`${billItem.bill_id}`);
     const modalContent = $('<div>').addClass('modal-content');
-    const modalHeader = $('<h4>').text(`${billItem.title}`);
-    const modalBody = $('<p>').text(`${billItem.bill_number}`);
 
-    modalContent.append(modalHeader, modalBody);
     billModal.append(modalContent);
 
     lastAction.text(`Last Action:  [${billItem.last_action_date}] - ${billItem.last_action}`);
     billNumber.text(`Bill Number: ${billItem.bill_number}`);
     billHeader.text(billItem.title);
 
-    subList.append(billNumber);
-    subList.append(lastAction);
-    rowDiv.append(billHeader);
-    rowDiv.append(subList);
-    item.append(rowDiv);
-    item.append(billModal);
-    item.attr('href',`#${billItem.bill_id}`);
+    subList.append(billNumber, lastAction);
+    rowDiv.append(billHeader, subList);
+    item.append(rowDiv, billModal);
+    item.attr('href', `#${billItem.bill_id}`);
     billModal.modal();
 
     return item;
@@ -204,12 +71,82 @@ $('document').ready(() => {
       console.log('the bill modal',billModal);
       // add event listener to each bill button
       // make an ajax call to get bill information
-      collectionItem.click(function(){
+      collectionItem.click(function(e) {
+        e.preventDefault();
         console.log(`${collectionItem}: Has been clicked`);
+        // call a function to get a
+        $.ajax({
+          method: 'GET',
+          url: `https://api.legiscan.com/?key=6a2d12a9259d0c661bf3add8d58cd236&op=getBill&id=${billModal.attr('id')}`,
+          success: function(data) {
+            let bill = createBill(data.bill);
+            console.log(bill);
+            populateModal(billModal.children('div[class=modal-content]'), bill);
+          },
+          error: function(data) {
+            console.log('Error');
+          }
+        });
       });
     }
 
     // adding models to collection item
+  };
+  const createBill = (billData) => {
+    let bill = {};
+
+    bill.title = billData.title;
+    bill.subject = billData.subjects.subject_name;
+    bill.status = billData.status;
+    bill.desc = billData.description;
+    bill.billNum = billData.bill_number;
+    bill.billId = billData.bill_id;
+    bill.sponsors = [];
+    bill.calandar = [];
+    bill.votes = [];
+    bill.textUrl = billData.texts[0].state_link;
+    bill.history = [];
+
+    for(var i = 0; i < billData.sponsors.length; i++){
+      let currSponsor = billData.sponsors[i];
+      console.log("the current sponsor", currSponsor);
+      let person = {};
+      person.name = currSponsor.name;
+      person.role = currSponsor.role;
+      person.party = currSponsor.party;
+      person.ftmId = currSponsor.ftm_eid;
+      person.url = currSponsor.ballotpedia;
+
+      bill.sponsors.push(person);
+    }
+    return bill;
+  };
+
+  const populateModal = (modalContent, billData) => {
+
+    // remove previous modal elements
+    modalContent.empty();
+    modalContent.click(function(e){
+      e.stopPropagation();
+    });
+
+    const modalHeader = $('<h5>');
+    const buttonContainer = $('<div>').attr('class', 'container');
+    const exitButton = $('<button>').addClass('btn').text('EXIT');
+    const fullTextLink = $('<a>').text('Full Text').attr({
+      href: billData.textUrl,
+      class: 'btn'
+    });
+
+    modalHeader.text(billData.title);
+    modalContent.append(modalHeader, '<hr>');
+
+    buttonContainer.append(exitButton, fullTextLink);
+    modalContent.append(buttonContainer);
+
+    exitButton.click(function(){
+      modalContent.parent().modal('close');
+    })
   };
 
   // ========================= PROGRAM STARTS HERE ======================== //
@@ -222,17 +159,13 @@ $('document').ready(() => {
   // api info
   const apiURL = 'https://api.legiscan.com/?';
   const apiKey = 'key=6a2d12a9259d0c661bf3add8d58cd236&op';
-  let options = '&op=';
-
-  options += 'search&state=CO&query=Animal';
+  let options = '&op=search&state=CO&query=';
 
   // console.log($searchButton,$nameInput,$idInput);
 
   $searchButton.click((e) => {
     e.preventDefault();
-    const searchResults = initSearchResults();
-
-    buildSearchCollection(searchResults);
-
+    initSearchResults();
+    //console.log("the search results", searchResults);
   });
 });
