@@ -91,7 +91,7 @@ $('document').ready(() => {
   }
   const buildSearchCollection = (results) => {
     const resultsContainer = $('#results .container');
-    const collection = $('<ul class="collection"></ul>');
+    const collection = $('<ul class="collection z-depth-3"></ul>');
 
     resultsContainer.empty();
     resultsContainer.append(collection);

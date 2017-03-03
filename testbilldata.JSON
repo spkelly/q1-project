@@ -102,6 +102,36 @@
       "votes": [],
       "amendments": [],
       "supplements": [],
-      "calendar": []
+      "calendar": [],
+
+
   }
-}
+
+  [{
+      "roll_call_id": 580984,
+      "date": "2017-02-09",
+      "passed": 1,
+      "desc": "House State, Veterans, and Military Affairs: Postpone House Bill 17-1069 indefinitely.",
+      "chamber": "H",
+      "chamber_id": 21,
+      "url": "https://legiscan.com/CO/rollcall/HB1069/id/580984",
+      "state_link": "http://leg.colorado.gov/content/hsa2017a2017-02-09t100019z-hb17-1069-0-activity-vote-summary"
+  }, {
+      "roll_call_id": 582140,
+      "date": "2017-02-09",
+      "passed": 1,
+      "desc": "House State, Veterans, and Military Affairs: Postpone House Bill 17-1069 indefinitely.",
+      "chamber": "H",
+      "chamber_id": 21,
+      "url": "https://legiscan.com/CO/rollcall/HB1069/id/582140",
+      "state_link": "http://leg.colorado.gov/content/hsa2017a2017-02-09t100019z-hb17-1069-2-activity-vote-summary"
+  }, {
+      "roll_call_id": 582141,
+      "date": "2017-02-09",
+      "passed": 0,
+      "desc": "House State, Veterans, and Military Affairs: Refer House Bill 17-1069, as amended, to the Committee on Appropriations.",
+      "chamber": "H",
+      "chamber_id": 21,
+      "url": "https://legiscan.com/CO/rollcall/HB1069/id/582141",
+      "state_link": "http://leg.colorado.gov/content/hsa2017a2017-02-09t100019z-hb17-1069-1-activity-vote-summary"
+  }]

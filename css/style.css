@@ -5,6 +5,10 @@
   height:600px;
 }
 
+#title{
+  font-family: 'Russo One', sans-serif;
+  font-size: 24px;
+}
 #results{
   padding-top: 10px;
 }
@@ -27,7 +31,7 @@
 }
 
 .collection{
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   margin-top: 0px;
   -webkit-margin-before: 0px;
     -webkit-margin-after: 0px;
@@ -48,25 +52,13 @@ section div div.row {
   margin-bottom: 0;
 
 }
-
-
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
   .flavor-title{
     margin-bottom: 0;
   }
 
   #flavor-section{
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 80px;
   }
 
 #name-input{
@@ -96,6 +88,7 @@ section div div.row {
 
 a.collection-item{
   color:black !important;
+  font-family: 'Arimo', sans-serif;
 }
 
 .modal p{
@@ -107,4 +100,13 @@ a.collection-item{
   width:50%;
   min-width: 300px;
   margin:0 auto
+}
+
+.button-container .btn {
+  margin-left: 60px;
+  margin-right: 10px;
+}
+
+.page-footer{
+  padding-top: 80px !important;
 }
