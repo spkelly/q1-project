@@ -58,6 +58,37 @@ $('document').ready(() => {
 
     return item;
   };
+  const makebillDetails = (billData) => {
+    let row = $('<div>').addClass('row');
+    let sponsorCol = $('<div>').addClass('col l6 m6 s12');
+    let billCol = $('<div>').addClass('col l6 m6 s12');
+
+    let billNumber = $('<p>').text('Bill Number: '+ billData.billNum)
+    let committee =$('<p>');
+    if(billData.committee.name){
+      committee.text(`Commitee: ${billData.committee.name}`);
+    }
+    else {
+      committee.text(`Commitee: None `);
+    }
+
+    let sponsorTitle = $('<h5>').text("Bill sponsors")
+    sponsorCol.append(sponsorTitle);
+    for (let i = 0; i < billData.sponsors.length; i++) {
+      const sponsorElement = $('<a>').attr({
+        class: 'col l12 m12 s12',
+        href: `https://ballotpedia.org/${billData.sponsors[i].url}`,
+        target: '_blank'
+      });
+
+      sponsorElement.text(`${billData.sponsors[i].role}. ${billData.sponsors[i].name} -- ${billData.sponsors[i].party}`);
+      sponsorCol.append(sponsorElement);
+    }
+
+    billCol.append('<h5>Details</h5>',billNumber,committee);
+    row.append(sponsorCol,billCol)
+    return row;
+  }
   const buildSearchCollection = (results) => {
     const resultsContainer = $('#results .container');
     const collection = $('<ul class="collection"></ul>');
@@ -82,7 +113,7 @@ $('document').ready(() => {
           url: `https://api.legiscan.com/?key=6a2d12a9259d0c661bf3add8d58cd236&op=getBill&id=${billModal.attr('id')}`,
           success: function(data) {
             let bill = createBill(data.bill);
-            console.log(bill);
+
             populateModal(billModal.children('div[class=modal-content]'), bill);
           },
           error: function(data) {
@@ -160,6 +191,7 @@ $('document').ready(() => {
     bill.billNum = billData.bill_number;
     bill.billId = billData.bill_id;
     bill.sponsors = [];
+    bill.committee = billData.committee;
     bill.calendar = billData.calendar;
     bill.votes = billData.votes;
     bill.textUrl = billData.texts[0].state_link;
@@ -167,8 +199,8 @@ $('document').ready(() => {
 
     for (let i = 0; i < billData.sponsors.length; i++) {
       let currSponsor = billData.sponsors[i];
-      console.log("the current sponsor", currSponsor);
       let person = {};
+
       person.name = currSponsor.name;
       person.role = currSponsor.role;
       person.party = currSponsor.party;
@@ -180,6 +212,10 @@ $('document').ready(() => {
 
     return bill;
   };
+  const createHistory = () =>{
+    const table = $('<table>');
+    return table;
+  }
   const mapBillStatus = (statusNum) => {
     const status = $('<p>');
 
@@ -222,8 +258,8 @@ $('document').ready(() => {
     // Creates modal HTML elements
     const modalHeader = $('<h5>');
     const detailRowDiv = $('<div>').addClass('row');
-    const firstRowDiv = $('<div>').addClass('row');
-    const buttonContainer = $('<div>').attr('class', 'container');
+    const firstRowDiv = makebillDetails(billData);
+    const buttonContainer = $('<div>').attr('class', 'button-container');
     const exitButton = $('<button>').addClass('btn').text('EXIT');
     const fullTextLink = $('<a>').text('Full Text').attr({
       href: billData.textUrl,
@@ -243,34 +279,19 @@ $('document').ready(() => {
     let voteCollapse = $('<li>');
 
     // sponsors
-    let sponsorTitle = $('<h5>').text("Bill sponsors").attr('class','col l3 m3 s12');
-    firstRowDiv.append(sponsorTitle);
-    for (var i = 0; i < billData.sponsors.length; i++) {
-      let sponsorElement = $('<a>').attr({
-        class: 'col l12 m12 s12',
-        href: `https://ballotpedia.org/${billData.sponsors[i].url}`,
-        target: "_blank"
-      });
-      sponsorElement.text(`${billData.sponsors[i].role} ${billData.sponsors[i].name} -- ${billData.sponsors[i].party}`);
-      firstRowDiv.append(sponsorElement);
-    }
 
-    // console.log(billData.desc);
     // calendar
 
-    const sched = buildScheduleTable(billData.calendar);
-    const votes = buildVotes(billData.votes);
     const descHeader = $('<div>').addClass('collapsible-header').text('Description');
     const descBody = $('<div>').addClass('collapsible-body').text(billData.desc);
-
+    const schedule = buildScheduleTable(billData.calendar);
+    const votes = buildVotes(billData.votes);
     const schedHeader = $('<div>').addClass('collapsible-header').text('Schedule');
     const schedBody = $('<div>').addClass('collapsible-body');
-
-    schedBody.append(sched);
-
     const voteHeader = $('<div>').addClass('collapsible-header').text('Votes');
     const voteBody = $('<div>').addClass('collapsible-body');
 
+    schedBody.append(schedule);
     voteBody.append(votes);
 
     descCollapse.append(descHeader, descBody);
@@ -278,7 +299,7 @@ $('document').ready(() => {
     voteCollapse.append(voteHeader, voteBody);
 
     details.append(descCollapse, schedCollapse, voteCollapse);
-    $(details).collapsible();
+
     modalHeader.text(billData.title);
     modalContent.append(modalHeader, billStatus, '<hr>');
     detailRowDiv.append(details);
@@ -289,6 +310,7 @@ $('document').ready(() => {
     exitButton.click(() => {
       modalContent.parent().modal('close');
     });
+    $(details).collapsible();
   };
 
   // ========================= PROGRAM STARTS HERE ======================== //

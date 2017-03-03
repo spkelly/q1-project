@@ -5,6 +5,10 @@
   height:600px;
 }
 
+#results{
+  padding-top: 10px;
+}
+
 #search-button{
   margin: 0 auto;
   display: block;
@@ -23,6 +27,7 @@
 }
 
 .collection{
+  border-radius: 5px;
   margin-top: 0px;
   -webkit-margin-before: 0px;
     -webkit-margin-after: 0px;
@@ -83,4 +88,23 @@ section div div.row {
 
 .failed{
   color: red;
+}
+
+.modal{
+  color: black;
+}
+
+a.collection-item{
+  color:black !important;
+}
+
+.modal p{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.button-container{
+  width:50%;
+  min-width: 300px;
+  margin:0 auto
 }
