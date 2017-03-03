@@ -333,16 +333,19 @@ $('document').ready(() => {
   });
 
   $searchButton.click((e) => {
-    e.preventDefault();
-    $('#main').animate({
-      height: '150'
-    }, 500);
-    $('#title-text').fadeOut();
+    if ($nameInput.val()){
+      $('#main').animate({
+        height: '150'
+      }, 500);
+      $('#title-text').fadeOut();
 
-    // reset search options
-    options = '&op=search&state=CO&query=';
-    initSearchResults();
-    $('#flavor-section').hide();
+      // reset search options
+      options = '&op=search&state=CO&query=';
+      initSearchResults();
+      $('#flavor-section').hide();
+    }
+    e.preventDefault();
+
 
     // console.log("the search results", searchResults);
   });
