@@ -18,85 +18,65 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <nav>
-      <div class="nav-wrapper blue darken-3">
-        <a href="#">Place Holer</a>
-      </div>
-    </nav>
+    <header>
+      <nav>
+        <div class="nav-wrapper  blue-grey">
+          <a href="index.html">Place Holer</a>
+        </div>
+      </nav>
+    </header>
     <section id=main>
-      <div id="search-holder" class="container">
-        <div class="row">
-          <input type="text" name=""  placeholder="Bill Name" id="name-input" class=" input-field col l6 offset-l3 search-input">
-          <!-- <input type="text" name="" placeholder="Bill ID"id="id-input" class=" col l4 offset-l1 search-input"> -->
-        <!-- <input type="text" name="" value=""class="search-input"> -->
+      <div class="wrapper valign-wrapper">
+        <div id="search-holder" class="valign container">
+          <h1 class="header center white-text z-depth-2" id="title-text">The Thrill of Law is at Your Fingertips!</h1>
+          <div class="row">
+
+            <input type="text" name=""  placeholder="Bill Name" id="name-input" class=" input-field col l6 offset-l3 search-input center">
+            <a class='dropdown-button btn blue-grey col l2' href='#' data-activates='dropdown1'>Current</a>
+            <!-- Dropdown Button -->
+
+           <!-- Dropdown Structure -->
+           <ul id='dropdown1' class='dropdown-content'>
+             <li data-id="2" class="option"><a href="#!">Current</a></li>
+             <li data-id="3" class="option"><a href="#!">Recent</a></li>
+             <li data-id="1" class="option"><a href="#!">All</a></li>
+           </ul>
+          </div>
+          <button type="submit" name="search-button" id="search-button" class="btn blue-grey" id=>Search</button>
         </div>
-        <button type="submit" name="search-button" id="search-button" class="btn" id=>Search</button>
       </div>
-
-    </section>
-    <section id="results">
-        <div class="container">
-
-        </div>
-
-
-    </section>
-    <footer class="page-footer blue darken-3">
+    </section><!--
+ --><section class="blue-grey lighten-3" id="flavor-section">
       <div class="container">
+        <div class="row white-text">
+          <div class="col l4 m4 s12">
+            <h3 class="flavor-title center">Discover</h3>
+            <hr>
+            <h5 class="center">Search any active Colorao legislation</h3>
+          </div>
+          <div class="col l4 m4 s12">
+            <h3 class="flavor-title center">Track</h3>
+            <hr>
+            <h5 class="center">View upcoming Events, votes and hearings</h3>
+          </div>
+          <div class="col l4 m4 s12">
+            <h3 class="flavor-title center">Research</h3>
+            <hr>
+            <h5 class="center">Discover Bill sponsors, and probably some other things </h3>
+          </div>
+        </div>
+      </div>
+    </section><!--
+    --><section id="results" class="blue-grey lighten-3">
+        <div class="container"></div>
+    </section>
+    <footer class="page-footer blue-grey lighten-1">
+      <div class="container">
+        <h3 class="white-text">Hey Put some text down here</h1>
+      </div>
+      <div class="footer-copyright">
+        Sean Kelly 2017 Quarter 1 project
       </div>
     </footer>
   </body>
 </html>
-
-<!-- <ul class="collection">
-  <a class="collection-item">
-    <div class="row">
-      <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
-      <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
-    </div>
-    <ul>
-      <li class="sr-billNumber">Bill Number: </li>
-      <li class="sr-lastAction">Last Action: </li>
-    </ul>
-  </a>
-  <a class="collection-item">
-    <div class="row">
-      <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
-      <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
-    </div>
-    <ul>
-      <li class="sr-billNumber">Bill Number: </li>
-      <li class="sr-lastAction">Last Action: </li>
-    </ul>
-  </a>
-  <a class="collection-item">
-    <div class="row">
-      <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
-      <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
-    </div>
-    <ul>
-      <li class="sr-billNumber">Bill Number: </li>
-      <li class="sr-lastAction">Last Action: </li>
-    </ul>
-  </a>
-  <a class="collection-item">
-    <div class="row">
-      <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
-      <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
-    </div>
-    <ul>
-      <li class="sr-billNumber">Bill Number: </li>
-      <li class="sr-lastAction">Last Action: </li>
-    </ul>
-  </a>
-  <a class="collection-item">
-    <div class="row">
-      <h3 class=" col l6 m6 s6 sr-BillName">Place Holder Bill Name</h3>
-      <h3 class="col l2 offset-m2 offset-l4 m1 s1 sr-BillStatus">Status</h3>
-    </div>
-    <ul>
-      <li class="sr-billNumber">Bill Number: </li>
-      <li class="sr-lastAction">Last Action: </li>
-    </ul>
-  </a>
-</ul> -->
