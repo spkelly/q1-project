@@ -3,9 +3,6 @@ $('document').ready(() => {
 
   // ============================= FUNCTIONS =============================== //
 
-  // THIS FUNCTION NEEDS SOME WORK
-  // TODO: create searhResults bill object with relevent data
-  // TODO: Push that data into the results array
   const initSearchResults = () => {
     const billResults = [];
 
@@ -122,8 +119,6 @@ $('document').ready(() => {
         });
       });
     }
-
-    // adding models to collection item
   };
   const buildScheduleTable = (schedule) => {
     let table = $('<table>').addClass('bordered');
@@ -313,8 +308,6 @@ $('document').ready(() => {
     $(details).collapsible();
   };
 
-  // ========================= PROGRAM STARTS HERE ======================== //
-
   // HTML ELEMENT declarations
   const $nameInput = $('#name-input');
   const $searchButton = $('button[type="submit"]');
@@ -323,8 +316,6 @@ $('document').ready(() => {
   const apiURL = 'https://api.legiscan.com/?';
   const apiKey = 'key=6a2d12a9259d0c661bf3add8d58cd236&op';
   let options = '&op=search&state=CO&query=';
-
-  // console.log($searchButton,$nameInput,$idInput);
 
   $('.option').click((e) => {
     const tempText = $(e.target).text();
@@ -346,7 +337,5 @@ $('document').ready(() => {
     }
     e.preventDefault();
 
-
-    // console.log("the search results", searchResults);
   });
 });
